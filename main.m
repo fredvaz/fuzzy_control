@@ -22,9 +22,14 @@ format short
 %
 %--------------------------------------------------------------------------
 
-%%                          System Plant Parameters 
+disp('___________________________________________________________________')
+disp(' ')
 
-global A1 A2 a1 a2 b1 b2 g p km vmax hmax v2    
+%%                          System Plant Parameters 
+disp('System Plant Parameters loading...')
+disp(' ') 
+
+global A1 A2 a1 a2 b1 b2 g rho km H1max H2max vmax     
 
 % Cross-sectional areas of the tanks [m2]
 A1 = pi * 1^2;
@@ -42,19 +47,91 @@ b2 = pi * 0.2^2;
 g = 9.81;
 
 % Constant
-p = b1/(b1 + b2);
+rho = b1/(b1 + b2);
 
 % Motor constant
 km = 2.5;
 
 % Maximum height of the tanks
-hmax = 10; 
+H1max = 10; 
+H2max = 20; 
 
-% Maximum voltage of the motors
+% Maximum voltage of the motor
 vmax = 10;
 
 
+%%                          Initial Conditions 
+disp('System Initial Condition loading...')
+disp(' ')
+
+% Initial Level of the tanks
+H1 = 5; 
+H2 = 10; 
+
+% Initial applied voltage to the motor
+Vp = 0;
+
+
+%%                             Simulation 
+disp('Simulation execution...')
+disp(' ')
+
+% Time Fuctions
+coder.extrinsic('tic');
+coder.extrinsic('toc');
+
+init_total = tic;
+
+sim 'fuzzy_system.slx'
+
+exec_time = toc(init_total);
+
+disp('Simulation Done!')
+disp(' ')
+disp(['Execution Time = ', num2str(exec_time), 's'])
+
+disp('___________________________________________________________________')
+
+
+%%                              Results 
+
+% Reference Signal
+figure;
+plot(Href);
+title('Sinal de Referencia');
+xlabel('Tempo (segundos)');
+ylabel('Nivel de referencia (cm)');
+
+
+
+
 %%                         Fuzzy Control Options 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
