@@ -1,5 +1,5 @@
 
-function p = error_ML(error)
+function p = error_MuchLower(error)
 % Retorna o valor de pertença para o conjunto difuso "Muito Inferior"/"Negative
 % Big", no universo de discurso do Erro
 

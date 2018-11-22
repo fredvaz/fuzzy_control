@@ -1,5 +1,5 @@
 
-function p = error_L(error)
+function p = error_Lower(error)
 % Retorna o valor de pertença para o conjunto difuso "Inferior"/"Negative
 % Small", no universo de discurso do Erro
 

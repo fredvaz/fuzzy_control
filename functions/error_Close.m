@@ -1,5 +1,5 @@
 
-function p = error_N(error)
+function p = error_Close(error)
 % Retorna o valor de pertença para o conjunto difuso "Perto"/"Close"
 
 p = zeros(1,length(error));

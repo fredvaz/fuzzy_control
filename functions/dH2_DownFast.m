@@ -1,5 +1,5 @@
 
-function p = dH2_DF(dH2)
+function p = dH2_DownFast(dH2)
 % Retorna o valor de pertença para o conjunto difuso "Muito Superior"/"Positive
 % Big", no universo de discurso do Erro
 

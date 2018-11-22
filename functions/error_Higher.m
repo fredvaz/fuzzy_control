@@ -1,5 +1,5 @@
 
-function p = error_H(error)
+function p = error_Higher(error)
 % Retorna o valor de pertença para o conjunto difuso "Superior"/"Positive
 % Small", no universo de discurso do Erro
 

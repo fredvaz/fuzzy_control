@@ -1,5 +1,5 @@
 
-function p = error_MH(error)
+function p = error_MuchHigher(error)
 % Retorna o valor de pertença para o conjunto difuso "Muito Superior"/"Positive
 % Big", no universo de discurso do Erro
 
