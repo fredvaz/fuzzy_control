@@ -5,6 +5,13 @@
 </p>
 
 
+## Dashboard
+
+<p align="center">
+  <img width="1000" src="doc/img/Dashboard_System.png">
+</p>
+
+
 ## System Equations
 
 

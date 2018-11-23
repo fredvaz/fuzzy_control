@@ -53,8 +53,8 @@ rho = b1/(b1 + b2);
 km = 40000;
 
 % Maximum height of the tanks [cm2]
-H1max = 200; 
-H2max = 200; 
+H1max = 100; 
+H2max = 100; 
 
 % Maximum voltage of the motor [V]
 Vmax = 12;
@@ -258,6 +258,7 @@ saveas(fig,'../doc/img/PROD-MC-Comando.png')
 
 %% TODOS NO MESMO GRÁFICO
 
+%% 
 fig = figure;
 
 plot(Href,'r--')
@@ -298,7 +299,6 @@ saveas(fig,'../doc/img/Command_Tudo.png')
 
 %% PERTUBAÇÕES 
 
-%% STEP
 fig = figure;
 
 plot(Href,'r--')
@@ -336,81 +336,7 @@ ylabel('Tensão (V)')
 saveas(fig,'../doc/img/Command_Tudo_Pertub_Step.png')
 
 
-%% RAMP
-fig = figure;
 
-plot(Href,'r--')
-hold on
-plot(Level_Tank2A, 'b')
-plot(Level_Tank2B, 'g')
-plot(Level_Tank2C, 'k')
-plot(Level_Tank2D, 'y')
-
-
-grid on;
-legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('Nível do Fluido no Tanque 2')
-xlabel('Tempo (s)')
-ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo_Pertub_Ramp.png')
-
-
-
-fig = figure;
-
-plot(CommandA, 'b')
-hold on
-plot(CommandB, 'g')
-plot(CommandC, 'k')
-plot(CommandD, 'y')
-
-grid on;
-legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-grid on;
-title('Valor de tensão aplicada na bomba')
-xlabel('Tempo (s)')
-ylabel('Tensão (V)')
-saveas(fig,'../doc/img/Command_Tudo_Pertub_Ramp.png')
-
-
-%% REFERENCE VARIABLE
-
-fig = figure;
-
-plot(Href,'r--')
-hold on
-plot(Level_Tank2A, 'b')
-plot(Level_Tank2B, 'g')
-plot(Level_Tank2C, 'k')
-plot(Level_Tank2D, 'y')
-
-
-grid on;
-legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('Nível do Fluido no Tanque 2')
-xlabel('Tempo (s)')
-ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo_Ref_Variable.png')
-
-
-
-fig = figure;
-
-plot(CommandA, 'b')
-hold on
-plot(CommandB, 'g')
-plot(CommandC, 'k')
-plot(CommandD, 'y')
-
-grid on;
-legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-grid on;
-title('Valor de tensão aplicada na bomba')
-xlabel('Tempo (s)')
-ylabel('Tensão (V)')
-saveas(fig,'../doc/img/Command_Tudo_Ref_Variable.png')
 
 
 
