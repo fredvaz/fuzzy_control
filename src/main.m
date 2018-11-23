@@ -31,33 +31,33 @@ disp(' ')
 
 global A1 A2 a1 a2 b1 b2 g rho km H1max H2max vmax     
 
-% Cross-sectional areas of the tanks [m2]
-A1 = pi * 1^2;
-A2 = pi * 2^2;
+% Cross-sectional areas of the tanks [cm2]
+A1 = 500;
+A2 = 500;
 
-% Cross-sectional areas of the output orifices of the tanks [m2]
-a1 = pi * 0.15^2; % [m2]
-a2 = pi * 0.2^2; % [m2]
+% Cross-sectional areas of the output orifices of the tanks [cm2]
+a1 = 25; 
+a2 = 25;
 
-% Cross-sectional areas of the input pipes to the tanks [m2]
-b1 = pi * 0.15^2;
-b2 = pi * 0.2^2;
+% Cross-sectional areas of the input pipes to the tanks [cm2]
+b1 = 25;
+b2 = 25;
 
-% Gravitational constant [m/s2]
-g = 9.81;
+% Gravitational constant [cm/s2]
+g = 980;
 
 % Constant
 rho = b1/(b1 + b2);
 
 % Motor constant
-km = 2.5;
+km = 40000;
 
-% Maximum height of the tanks
-H1max = 10; 
-H2max = 20; 
+% Maximum height of the tanks [cm2]
+H1max = 100; 
+H2max = 100; 
 
-% Maximum voltage of the motor
-vmax = 10;
+% Maximum voltage of the motor [V]
+vmax = 24;
 
 
 %%                          Initial Conditions 
@@ -65,8 +65,8 @@ disp('System Initial Condition loading...')
 disp(' ')
 
 % Initial Level of the tanks
-H1 = 5; 
-H2 = 10; 
+H1 = 80; 
+H2 = 40; 
 
 % Initial applied voltage to the motor
 Vp = 0;
@@ -93,28 +93,55 @@ disp(['Execution Time = ', num2str(exec_time), 's'])
 disp('___________________________________________________________________')
 
 
+%%                              Fuzzy Sets 
+
+% Gera Fuzzy sets de dV
+k = 4;
+x = -k:1/100:k;
+
+[ dVp_LD, dVp_D, dVp_k, dVp_I, dVp_LI ] = get_fuzzy_dVp(x);
+
+% Plot of dVp
+figure;
+plot( x, dVp_LD, x, dVp_D, x, dVp_k, x, dVp_I, x, dVp_LI );
+grid on;
+title('Fuzzy Set of dVp');
+grid on;
+legend('Decrementa Muito','Decrementa', 'Mantem', 'Incrementa', 'Incrementa Muito')
+
+
+k = 100;
+x = -k:1/100:k;
+
+[ dVp_LD, dVp_D, dVp_k, dVp_I, dVp_LI ] = get_fuzzy_dH2(x);
+
+% Plot of dVp
+figure;
+plot( x, dVp_LD, x, dVp_D, x, dVp_k, x, dVp_I, x, dVp_LI );
+grid on;
+title('Fuzzy Set of dH2');
+legend('Decrementa Muito','Decrementa', 'Mantem', 'Incrementa', 'Incrementa Muito')
+
+
+
+[ dVp_LD, dVp_D, dVp_k, dVp_I, dVp_LI ] = get_fuzzy_error(x);
+
+% Plot of dVp
+figure;
+plot( x, dVp_LD, x, dVp_D, x, dVp_k, x, dVp_I, x, dVp_LI );
+grid on;
+title('Fuzzy Set of Error');
+legend('Decrementa Muito','Decrementa', 'Mantem', 'Incrementa', 'Incrementa Muito')
+
+
+
 %%                              Results 
 
-% Reference Signal
 figure;
 plot(Href);
 title('Sinal de Referencia');
 xlabel('Tempo (segundos)');
 ylabel('Nivel de referencia (cm)');
-
-
-
-
-%%                         Fuzzy Control Options 
-
-
-
-
-
-
-
-
-
 
 
 
