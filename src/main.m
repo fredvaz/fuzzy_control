@@ -29,7 +29,7 @@ disp(' ')
 disp('System Plant Parameters loading...')
 disp(' ') 
 
-global A1 A2 a1 a2 b1 b2 g rho km H1max H2max vmax     
+global A1 A2 a1 a2 g rho km     
 
 % Cross-sectional areas of the tanks [cm2]
 A1 = 500;
@@ -57,7 +57,13 @@ H1max = 100;
 H2max = 100; 
 
 % Maximum voltage of the motor [V]
-vmax = 24;
+Vmax = 12;
+
+% Input Factor Scale
+fin = 1; 
+
+% Output Factor Scale
+fout = 5;%0.1;
 
 
 %%                          Initial Conditions 
