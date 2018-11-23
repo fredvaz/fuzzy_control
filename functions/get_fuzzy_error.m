@@ -8,7 +8,7 @@ p4 = zeros(1,length(error));
 p5 = zeros(1,length(error));
 
 
-%% Much Higher 
+%% Big Negative
 center = -50;                  % Center Limit
 upper = -20;                   % Upper Limit
 b = abs(center - upper);       % Center distance
@@ -24,7 +24,7 @@ for i = 1:length(error)
 end
 
 
-%% Higher 
+%% Negative 
 center = -25;                  % Center Limit
 upper = 0;                     % Upper Limit
 lower = -50;                   % Lower limit
@@ -39,7 +39,7 @@ for i = 1:length(error)
 end
 
 
-%% Close 
+%% Small 
 center = 0;                    % Center Limit
 upper = 20;                    % Upper Limit
 lower = -20;                   % Lower limit
@@ -54,7 +54,7 @@ for i = 1:length(error)
 end
 
 
-%% Lower 
+%% Positive 
 center = 25;                  % Center Limit
 upper = 50;                   % Upper Limit
 lower = 0;                    % Lower limit
@@ -68,7 +68,7 @@ for i = 1:length(error)
     
 end
 
-%% Much Lower
+%% Big Positive
 center = 50;                  % Center Limit
 lower = 20;                    % Lower limit
 b = abs(center - lower);      % Center distance

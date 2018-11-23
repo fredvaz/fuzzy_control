@@ -1,8 +1,5 @@
 
 function centers_i = find_center(U)
-% Calcula  indice (i) para o qual x(i) corresponde ao valor do centro 
-%   - x fun?ao de perten?a (vetor dos valores)
-%   - c index
 
 lines = size(U,1);
 centers_i = zeros(1,lines);

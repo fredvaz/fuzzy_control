@@ -33,7 +33,7 @@ global A1 A2 a1 a2 g rho km
 
 % Cross-sectional areas of the tanks [cm2]
 A1 = 2000;
-A2 = 2000;
+A2 = 2000;close all
 
 % Cross-sectional areas of the output orifices of the tanks [cm2]
 a1 = 500; 
@@ -63,7 +63,7 @@ Vmax = 12;
 fin = 0.1; 
 
 % Output Factor Scale
-fout = 10;
+fout = 20.5;
 
 
 %%                          Initial Conditions 
@@ -115,7 +115,7 @@ title('Fuzzy Set of dVp');
 grid on;
 legend('Decrementa Muito','Decrementa', 'Mantem', 'Incrementa', 'Incrementa Muito')
 axis([-5 5 0 1.4]);
-saveas(fig,'../doc/img/Fuzzy_Set_of_dVp.png');
+saveas(fig,'../doc/img/Fuzzy_Set_of_dVp.pdf');
 
 
 k = 100;
@@ -130,7 +130,7 @@ grid on;
 title('Fuzzy Set of dH2');
 legend('Desce Muito', 'Desce', 'Lento', 'Sobe', 'Sobe Muito')
 axis([-100 100 0 1.4]);
-saveas(fig,'../doc/img/Fuzzy_Set_of_dH2.png');
+saveas(fig,'../doc/img/Fuzzy_Set_of_dH2.pdf');
 
 
 
@@ -141,11 +141,11 @@ fig = figure;
 plot( x, p1, x, p2, x, p3, x, p4, x, p5 );
 grid on;
 title('Fuzzy Set of Error');
-legend('Muito Abaixo','Abaixo', 'Perto', 'Acima', 'Muito Acima')
+legend('Muito Negativo','Negativo', 'Perto', 'Positivo', 'Muito Positivo')
 axis([-100 100 0 1.4]);
-saveas(fig,'../doc/img/Fuzzy_Set_of_Error.png');
+saveas(fig,'../doc/img/Fuzzy_Set_of_Error.pdf');
 
-close all
+
 
 %%                              Results 
 
@@ -153,26 +153,27 @@ close all
 % com Desdifusor Centro de Gravidade
 
 fig = figure;
-plot(Level_Tank2A)
-hold on 
 plot(Href,'r--')
+hold on 
+plot(Level_Tank2A, 'g')
 
 grid on
 legend('Href','MIN-CG')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 30 40 75]);
-saveas(fig,'../doc/img/MIN-CG-Nivel.png') 
+axis([0 60 40 80]);
+saveas(fig,'../doc/img/MIN-CG-Nivel.pdf') 
 
 
 fig = figure;
-plot(CommandA); 
+plot(CommandA,'b'); 
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/MIN-CG-Comando.png') 
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/MIN-CG-Comando.pdf') 
 
 
 
@@ -180,26 +181,27 @@ saveas(fig,'../doc/img/MIN-CG-Comando.png')
 % com Desdifusor Media dos Centros
 
 fig = figure;
-plot(Level_Tank2B)
-hold on 
 plot(Href,'r--')
+hold on 
+plot(Level_Tank2B, 'g')
 
 grid on
 legend('Href','MIN-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 30 40 75]);
-saveas(fig,'../doc/img/MIN-MC-Nivel.png') 
+axis([0 60 40 80]);
+saveas(fig,'../doc/img/MIN-MC-Nivel.pdf') 
 
 
 fig = figure;
-plot(CommandB); 
+plot(CommandB,'b'); 
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/MIN-MC-Comando.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/MIN-MC-Comando.pdf')
 
 
 
@@ -207,26 +209,27 @@ saveas(fig,'../doc/img/MIN-MC-Comando.png')
 % com Desdifusor Centro de Gravidade
 
 fig = figure;
-plot(Level_Tank2C)
-hold on 
 plot(Href,'r--')
+hold on 
+plot(Level_Tank2C,'g')
 
 grid on
 legend('Href','PROD-CG')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 30 40 75]);
-saveas(fig,'../doc/img/PROD-CG-Nivel.png') 
+axis([0 60 40 80]);
+saveas(fig,'../doc/img/PROD-CG-Nivel.pdf') 
 
 
 fig = figure;
-plot(CommandC); 
+plot(CommandC,'b'); 
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/PROD-CG-Comando.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/PROD-CG-Comando.pdf')
 
 
 
@@ -234,29 +237,30 @@ saveas(fig,'../doc/img/PROD-CG-Comando.png')
 % com Desdifusor Media dos centros
 
 fig = figure;
-plot(Level_Tank2D)
-hold on 
 plot(Href,'r--')
+hold on 
+plot(Level_Tank2D,'g')
 
 grid on
 legend('Href','PROD-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 30 40 75]);
-saveas(fig,'../doc/img/PROD-MC-Nivel.png') 
+axis([0 30 40 80])
+saveas(fig,'../doc/img/PROD-MC-Nivel.pdf') 
 
 
 fig = figure;
-plot(CommandD); 
+plot(CommandD,'b'); 
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/PROD-MC-Comando.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/PROD-MC-Comando.pdf')
 
 
-%% TODOS NO MESMO GR¡FICO
+%% TODOS NO MESMO GR√ÅFICO
 
 fig = figure;
 
@@ -270,11 +274,11 @@ plot(Level_Tank2D, 'y')
 
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo.png')
+axis([0 60 40 80])
+saveas(fig,'../doc/img/Level_Tudo.pdf')
 
 
 
@@ -287,16 +291,17 @@ plot(CommandC, 'k')
 plot(CommandD, 'y')
 
 grid on;
-legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
+legend('MIN-CG','MIN-MC','PROD-CG','PROD-MC')
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/Command_Tudo.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/Command_Tudo.pdf')
 
 
 
-%% PERTUBA«’ES 
+%% PERTUBA√á√ïES 
 
 %% STEP
 fig = figure;
@@ -311,11 +316,11 @@ plot(Level_Tank2D, 'y')
 
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo_Pertub_Step.png')
+axis([0 60 40 80])
+saveas(fig,'../doc/img/Level_Tudo_Pertub_Step.pdf')
 
 
 
@@ -330,10 +335,11 @@ plot(CommandD, 'y')
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/Command_Tudo_Pertub_Step.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/Command_Tudo_Pertub_Step.pdf')
 
 
 %% RAMP
@@ -349,11 +355,11 @@ plot(Level_Tank2D, 'y')
 
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo_Pertub_Ramp.png')
+axis([0 120 40 90]);
+saveas(fig,'../doc/img/Level_Tudo_Pertub_Ramp.pdf')
 
 
 
@@ -368,10 +374,11 @@ plot(CommandD, 'y')
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/Command_Tudo_Pertub_Ramp.png')
+ylabel('Tens√£o (V)')
+axis([0 120 0 6])
+saveas(fig,'../doc/img/Command_Tudo_Pertub_Ramp.pdf')
 
 
 %% REFERENCE VARIABLE
@@ -388,11 +395,11 @@ plot(Level_Tank2D, 'y')
 
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
-title('NÌvel do Fluido no Tanque 2')
+title('N√≠vel do Fluido no Tanque 2')
 xlabel('Tempo (s)')
 ylabel('Altura (cm)')
-axis([0 60 40 80]);
-saveas(fig,'../doc/img/Level_Tudo_Ref_Variable.png')
+axis([0 120 40 90]);
+saveas(fig,'../doc/img/Level_Tudo_Ref_Variable.pdf')
 
 
 
@@ -407,10 +414,11 @@ plot(CommandD, 'y')
 grid on;
 legend('Href','MIN-CG','MIN-MC','PROD-CG','PROD-MC')
 grid on;
-title('Valor de tens„o aplicada na bomba')
+title('Valor de tens√£o aplicada na bomba')
 xlabel('Tempo (s)')
-ylabel('Tens„o (V)')
-saveas(fig,'../doc/img/Command_Tudo_Ref_Variable.png')
+ylabel('Tens√£o (V)')
+axis([0 60 0 6])
+saveas(fig,'../doc/img/Command_Tudo_Ref_Variable.pdf')
 
 
 
