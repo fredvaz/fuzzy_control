@@ -15,8 +15,8 @@
 ## Requirements
 
 - git
-- [MATLAB]()
-- [SIMULINK]()
+- MATLAB
+- SIMULINK
 
 
 
