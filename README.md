@@ -12,10 +12,6 @@
 </p>
 
 
-## System Equations
-
-
-
 ## Requirements
 
 - git
